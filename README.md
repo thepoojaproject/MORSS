@@ -9,257 +9,147 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #588157, #3a5a40, #344e41);
-            color: #fff;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            justify-content: center;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        h1 {
+        .logo {
             text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            color: #dad7cd;
+            margin-bottom: 30px;
+            padding: 10px;
         }
         
-        .description {
-            text-align: center;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            opacity: 0.9;
-            color: #dad7cd;
-        }
-        
-        .converter {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .logo img {
+            max-width: 280px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .input-group, .output-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            margin-bottom: 20px;
         }
         
         label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
-            color: #a3b18a;
+            color: #2c3e50;
         }
         
         textarea {
             width: 100%;
-            min-height: 120px;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 2px solid #3a5a40;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            min-height: 100px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             font-size: 1rem;
             resize: vertical;
-            transition: all 0.3s;
+            transition: border 0.3s;
         }
         
         textarea:focus {
             outline: none;
-            border-color: #a3b18a;
-            box-shadow: 0 0 10px rgba(163, 177, 138, 0.5);
+            border-color: #3498db;
         }
         
         .buttons {
             display: flex;
-            gap: 1rem;
+            gap: 10px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
         
         button {
             flex: 1;
-            min-width: 150px;
-            padding: 0.8rem 1.5rem;
+            min-width: 120px;
+            padding: 10px 15px;
             border: none;
-            border-radius: 10px;
-            background: linear-gradient(to right, #588157, #3a5a40);
+            border-radius: 4px;
+            background-color: #3498db;
             color: white;
             font-weight: 600;
-            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(to right, #5a8c5a, #3e6344);
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         button:active {
-            transform: translateY(1px);
+            transform: translateY(0);
         }
         
         button:disabled {
-            background: #4a5d53;
+            background-color: #95a5a6;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
         
         .morse-output {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            min-height: 120px;
+            background-color: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            min-height: 100px;
             font-family: monospace;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            line-height: 1.6;
-            word-break: break-word;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .visualization {
-            margin-top: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .dot, .dash, .space {
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: #a3b18a;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(163, 177, 138, 0.7);
-        }
-        
-        .dash {
-            width: 30px;
-            height: 12px;
-            background: #a3b18a;
-            border-radius: 6px;
-            box-shadow: 0 0 10px rgba(163, 177, 138, 0.7);
-        }
-        
-        .space {
-            width: 20px;
-            height: 5px;
-        }
-        
-        .active {
-            transform: scale(1.2);
-            background: #dad7cd;
-            box-shadow: 0 0 15px #dad7cd;
-        }
-        
-        .instructions {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .instructions h3 {
-            margin-bottom: 1rem;
-            color: #a3b18a;
-        }
-        
-        .instructions ul {
-            list-style-type: none;
-            padding-left: 1rem;
-        }
-        
-        .instructions li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            color: #dad7cd;
-        }
-        
-        .instructions li:before {
-            content: "•";
-            color: #a3b18a;
-            font-weight: bold;
-            margin-right: 0.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border: 1px solid #eee;
         }
         
         .footer {
-            margin-top: 2rem;
+            margin-top: 20px;
             text-align: center;
-            color: #dad7cd;
-            font-size: 1.2rem;
-            font-weight: 500;
-            padding: 1rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
         }
         
         .heart {
+            color: #e74c3c;
             display: inline-block;
             animation: heartbeat 1.5s infinite;
-            color: #ff6b6b;
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
         }
         
         @keyframes heartbeat {
-            0% {
-                transform: scale(1);
-            }
-            5% {
-                transform: scale(1.1);
-            }
-            10% {
-                transform: scale(1);
-            }
-            15% {
-                transform: scale(1.2);
-            }
-            50% {
-                transform: scale(1);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
         }
         
         @media (max-width: 600px) {
             .container {
-                padding: 1.5rem;
+                padding: 20px;
             }
             
-            h1 {
-                font-size: 2rem;
+            .logo img {
+                max-width: 200px;
             }
             
             .buttons {
@@ -269,59 +159,35 @@
             button {
                 min-width: 100%;
             }
-            
-            .footer {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Morse Code Converter</h1>
-        
-        <p class="description">
-            Convert text to Morse code and vice versa. You can also play the Morse code as sound and see a visual representation.
-        </p>
-        
-        <div class="converter">
-            <div class="input-group">
-                <label for="inputText">Enter Text or Morse Code:</label>
-                <textarea id="inputText" placeholder="Type your text here..."></textarea>
-            </div>
-            
-            <div class="buttons">
-                <button id="toMorseBtn">Convert to Morse</button>
-                <button id="toTextBtn">Convert to Text</button>
-                <button id="playBtn">Play Morse Code</button>
-                <button id="clearBtn">Clear</button>
-            </div>
-            
-            <div class="output-group">
-                <label for="outputText">Converted Output:</label>
-                <div id="outputText" class="morse-output">Your converted text will appear here...</div>
-            </div>
-            
-            <div class="visualization" id="visualization">
-                <div class="instructions">
-                    <h3>Morse Code Visualization</h3>
-                    <p>Visual representation of your Morse code will appear here when you play the sound.</p>
-                </div>
-            </div>
+        <div class="logo">
+            <img src="https://i.ibb.co/Dgz38sjY/image.png" alt="Morse Code Logo" border="0">
         </div>
         
-        <div class="instructions">
-            <h3>About Morse Code</h3>
-            <ul>
-                <li>Morse code is a method of transmitting text information as a series of on-off tones, lights, or clicks.</li>
-                <li>Each character (letter or numeral) is represented by a unique sequence of dots and dashes.</li>
-                <li>International Morse code is composed of five elements: short mark (dot), longer mark (dash), intra-character gap, short gap, and medium gap.</li>
-            </ul>
+        <div class="input-group">
+            <label for="inputText">Enter Text or Morse Code:</label>
+            <textarea id="inputText" placeholder="Type your text or Morse code here..."></textarea>
+        </div>
+        
+        <div class="buttons">
+            <button id="toMorseBtn">Convert to Morse</button>
+            <button id="toTextBtn">Convert to Text</button>
+            <button id="playBtn">Play Morse Code</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+        
+        <div class="output-group">
+            <label for="outputText">Converted Output:</label>
+            <div id="outputText" class="morse-output">Your converted text will appear here...</div>
         </div>
     </div>
 
     <div class="footer">
-        Made with <span class="heart">💖</span> By Armeen
+        Made with <span class="heart">❤️</span> By Armeen
     </div>
 
     <script>
@@ -332,7 +198,6 @@
             const toTextBtn = document.getElementById('toTextBtn');
             const playBtn = document.getElementById('playBtn');
             const clearBtn = document.getElementById('clearBtn');
-            const visualization = document.getElementById('visualization');
             
             // Morse code dictionary
             const morseCode = {
@@ -380,9 +245,6 @@
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 let time = 0;
                 
-                // Clear previous visualization
-                visualization.innerHTML = '';
-                
                 // Create oscillator
                 const oscillator = audioContext.createOscillator();
                 oscillator.type = 'sine';
@@ -404,22 +266,18 @@
                     if (token === '.') {
                         // Dot: beep for 100ms
                         gainNode.gain.setValueAtTime(0.5, time);
-                        visualization.appendChild(createVisualElement('dot', time));
                         time += 0.1;
                         gainNode.gain.setValueAtTime(0, time);
                     } else if (token === '-') {
                         // Dash: beep for 300ms
                         gainNode.gain.setValueAtTime(0.5, time);
-                        visualization.appendChild(createVisualElement('dash', time));
                         time += 0.3;
                         gainNode.gain.setValueAtTime(0, time);
                     } else if (token === ' ') {
                         // Space between characters: pause for 200ms
-                        visualization.appendChild(createVisualElement('space', time));
                         time += 0.2;
                     } else if (token === '/') {
                         // Space between words: pause for 500ms
-                        visualization.appendChild(createVisualElement('space', time));
                         time += 0.5;
                     }
                     
@@ -435,22 +293,6 @@
                     playBtn.disabled = false;
                     playBtn.textContent = 'Play Morse Code';
                 }, time * 1000);
-            }
-            
-            // Create visualization element
-            function createVisualElement(type, delay) {
-                const element = document.createElement('div');
-                element.className = type;
-                
-                // Animate the element when it's time to play
-                setTimeout(() => {
-                    element.classList.add('active');
-                    setTimeout(() => {
-                        element.classList.remove('active');
-                    }, (type === 'dot' ? 100 : type === 'dash' ? 300 : 0));
-                }, delay * 1000);
-                
-                return element;
             }
             
             // Event listeners
@@ -494,7 +336,6 @@
             clearBtn.addEventListener('click', function() {
                 inputText.value = '';
                 outputText.textContent = 'Your converted text will appear here...';
-                visualization.innerHTML = '<div class="instructions"><h3>Morse Code Visualization</h3><p>Visual representation of your Morse code will appear here when you play the sound.</p></div>';
             });
         });
     </script>
